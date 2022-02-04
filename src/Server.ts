@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import cors from 'cors';
 import http from 'http';
 import express from 'express';
@@ -18,6 +19,7 @@ app.use('/', express.static(`${__dirname}/public`));
 const socketHandler = new SocketHandler(io);
 socketHandler.handleConnections();
 
-server.listen(3000, () => {
-  console.log('listening on *:3000');
+const port = process.env.PORT || 3000;
+server.listen(port, () => {
+  console.log(`listening on port ${port}`);
 });
