@@ -1,6 +1,7 @@
 {
   "scripts": {
     "build": "tsc",
+    "postbuild": "cp -r src/public build",
     "start": "node build/Server.js",
     "dev": "ts-node src/Server.ts"
   },
