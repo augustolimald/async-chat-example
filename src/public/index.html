@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Chat</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="./index.css">
+	<link rel="stylesheet" href="./toastr.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="./socket.io.js"></script>
+	<script src="./toastr.js"></script>
+</head>
+
+<body>
+	<main class="content">
+		<div id="loginContainer" style="flex: 1; width: 100%; text-align: center;">
+			<center>
+			<div class="input-group" style= "width: 500px;">
+				<input id="inputLogin" type="text" class="form-control" placeholder="Type your Github Login">
+				&nbsp;&nbsp;
+				<button class="btn btn-primary" onclick="handleLogin()">Send</button>
+			</div>
+		</center>
+		</div>
+
+    <div id="appContainer" class="container p-0" style="display: none;">
+
+			<h1 class="h3 mb-3">Messages</h1>
+
+			<div class="card">
+				<div class="row g-0">
+					<div class="col-12 col-lg-5 col-xl-3 border-0">
+						<div id="usersList"></div>
+						<hr class="d-block d-lg-none mt-1 mb-0">
+					</div>
+
+					<div class="col-12 col-lg-7 col-xl-9">
+						<div class="py-2 px-4 border-bottom d-none d-lg-block">
+							<div class="d-flex align-items-center py-1">
+								<div class="position-relative">
+									<img id="userAvatar" src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
+								</div>
+								<div class="flex-grow-1 pl-3">
+									<strong id="userName"></strong>
+									<div id="userBio" class="text-muted small"></div>
+								</div>
+								<div>
+									<button type="button" class="btn-close" aria-label="Close" onclick="handleLogout()"></button>
+								</div>
+							</div>
+						</div>
+
+						<div class="position-relative">
+							<div id="messagesList" class="chat-messages p-4"></div>
+						</div>
+
+						<div class="flex-grow-0 py-3 px-4 border-top">
+							<div class="input-group">
+								<input id="inputMessage" type="text" class="form-control" placeholder="Type your message">
+								<button class="btn btn-primary" onclick="handleSendMessage()">Send</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<script src="./index.js"></script>
+</body>
